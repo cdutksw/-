@@ -1,0 +1,87 @@
+/* 全局定位 */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.contain {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* 大模块居中 */
+    margin-left: -100px;
+    margin-top: -100px;
+    /* 引用3D模型,嵌套元素在3D空间中实现 */
+    transform-style: preserve-3d;
+    animation: turn 1s linear infinite;
+}
+
+.contain:hover {
+    /* 暂停动画： */
+    animation-play-state: paused;
+}
+
+li {
+    list-style: none;
+}
+
+.one,
+.two,
+.three,
+.four,
+.five,
+.six {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    /*opacity设置一个div元素的透明度级别：*/
+    opacity: 0.5;
+    line-height: 200px;
+}
+
+.contain .one {
+    transform: translate3d(0, 0, 100px);
+    background-color: rgb(245, 95, 95);
+}
+
+.contain .two {
+    transform: rotateY(90deg) translate3d(0, 0, 100px);
+    background-color: rgb(252, 255, 101);
+}
+
+.contain .three {
+    transform: rotateY(-90deg) translate3d(0, 0, 100px);
+    border-color: rgb(70, 209, 247);
+}
+
+.contain .four {
+    transform: rotateY(180deg) translate3d(0, 0, 100px);
+    background-color: rgb(139, 243, 121);
+}
+
+.contain .five {
+    transform: rotateX(90deg) translate3d(0, 0, 100px);
+    background-color: rgb(180, 136, 250);
+}
+
+.contain .six {
+    transform: rotateX(-90deg) translate3d(0, 0, 100px);
+    background-color: rgb(254, 161, 117);
+}
+
+
+/* 引入动画 */
+
+@keyframes turn {
+    0% {
+        transform: rotate3d(0, 0, 0, 0deg);
+    }
+    100% {
+        transform: rotate3d(1, 1, 1, 360deg);
+    }
+}
